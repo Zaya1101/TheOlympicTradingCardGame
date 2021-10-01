@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    
+    <title>Olympic Trading Card Game</title>
+
+
+    <!-- Favicons -->
+
+
+    <!-- Google Fonts -->
+
+    
+    <!-- Bootstrap 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <!-- FontAwesome Icons -->
+    <link href="assets/css/all.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!--Manifest and Service Workers-->
+    <link href="assets/manifest/manifest.json" rel="manifest">
+
+</head>
+
+<body>
+
+<!--Service Worker Script-->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register ('assets/js/service-worker.js')
+        }
+
+</script>
+
+<!--Body-->
+
+<div class="navbar">
+    <div class="navbar-centered">
+        <a href="camera.html" class="active"><i class="fas fa-camera fa-2x circle"></i></a>
+    </div>
+    <a href="profile.html"><i class="fas fa-user fa-2x"></i></a>
+    <a href="collection.html"><i class="fas fa-folder-open fa-2x"></i></a>
+    <div class="navbar-right">
+        <a href="trading.html"><i class="fas fa-arrows-alt-h fa-2x"></i></a>
+        <a href="voting.html"><i class="fas fa-vote-yea fa-2x"></i></a>
+    </div>
+</div>
+    
+    <main id="main">
+        <h1>The Olympic Trading Card Game</h1>
+        <hr>
+        
+        <div class="welcomeback">
+            <h2><i class="fas fa-user"></i>Welcome back, NAME!</h2>
+        </div>
+        
+        <div class="favourite_cards">
+        
+        </div>
+        
+    </main><!-- End #main -->
+
+</body>
+
+</html>

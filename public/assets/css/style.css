@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Bottom Nav Bar */
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+    background: #f1f1f1;
+    color: black;
+}
+
+.navbar a.active {
+    /*background-color: #04AA6D; change this later*/
+    color: white;
+}
+
+.navbar-centered a {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navbar-right {
+    float: right;
+}
+
+.circle {
+    padding: 18px;
+    background-color: #04AA6D;
+    border-radius: 50%;
+}
+
+/*Sitewide CSS*/
+
+main {
+    padding: 16px;
+    margin-bottom: 30px;
+}
+
+/*Padding at bottom of page cause I'm lazy*/
+
+.spacing {
+    padding-bottom: 50px;
+    
+}
+
+/*Text and Paragraphs*/
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    
+}
+
+/*Homepage Divs*/
+
+.welcomeback {
+    text-align: center;
+    
+}
+
+
+/*Collection Divs*/
+
+.card_tiers {
+
+}
+
+.card_tiers img {
+    width: 100px;
+    padding: 0 10px 5px 0;
+}
+
+/*Choose Background Div*/
+
+.choose_background img {
+    width: 255pt;
+    padding: 10px;
+}
+
+.choose_background h2 {
+    text-align: center;
+}
+

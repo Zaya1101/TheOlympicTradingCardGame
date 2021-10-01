@@ -1,0 +1,21 @@
+{
+  "name": "pwa-prototype",
+  "version": "1.0.0",
+  "description": "PWA Olympic Trading Card App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "PWA",
+    "trading",
+    "cards",
+    "olympic"
+  ],
+  "author": "Isaiah Landicho",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  }
+}
