@@ -3,7 +3,7 @@ function setup() {
     let lat, lon;
     const button = document.getElementById('submit');
     button.addEventListener('click', async event => {
-        video.loadPixels();
+        loadPixels();
         const image64 = video.canvas.toDataURL();
         const data = { lat, lon, image64};
         const options = {
