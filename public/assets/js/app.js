@@ -3,30 +3,26 @@ function setup() {
 
   let constraints = {
     video: {
-        width: 375,
-        height: 812,
-        facingMode: {
-          exact: "environment"
-      },
+        minwidth: 375,
+        minheight: 812,
+        //facingMode: {
+         // exact: "environment"
+    //  },
     },
   audio: false
   };
 
-  let sketch = function(p) {
-    p.setup = function(){
-      const video = p.createCapture(constraints, function(stream) {
-        console.log(stream);
-      });
-    }
-  };
-  new p5(sketch, window.document.getElementById('container'));
+  const video = createCapture(constraints, function(stream) {
+    console.log(stream);
+  });
 
-  let lat, lon;
+  video.parent('cameraContainer');
+
   const button = document.getElementById('submit');
   button.addEventListener('click', async event => {
     video.loadPixels();
     const image64 = video.canvas.toDataURL();
-    const data = { lat, lon, image64};
+    const data = {image64};
     const options = {
         method: 'POST',
         headers: {
