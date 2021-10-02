@@ -5,9 +5,9 @@ function setup() {
     video: {
         minwidth: 375,
         minheight: 812,
-        //facingMode: {
-         // exact: "environment"
-    //  },
+        facingMode: {
+         exact: "environment"
+      },
     },
   audio: false
   };
