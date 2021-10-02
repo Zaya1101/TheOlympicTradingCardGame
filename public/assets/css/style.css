@@ -54,9 +54,13 @@ body {
 
 /*Sitewide CSS*/
 
-main {
+.main {
     padding: 16px;
     margin-bottom: 30px;
+}
+
+.main_takepicture {
+    padding: 0;
 }
 
 /*Padding at bottom of page cause I'm lazy*/
