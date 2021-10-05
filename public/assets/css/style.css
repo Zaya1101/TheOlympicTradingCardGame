@@ -104,3 +104,41 @@ h1 {
     text-align: center;
 }
 
+
+
+/*Preview Card Page*/
+
+
+#cardContainer {
+    padding: 10px;
+}
+
+.tradingcardContainer {
+    z-index: 0;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 80%;
+
+}
+
+.imageContainer {
+    z-index: 1;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 80%;
+}
+
+#chooseTheme {
+    position: relative;
+    margin-top: 130%;
+}
+
+#saveCard {
+    position: relative;
+}

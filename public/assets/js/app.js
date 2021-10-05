@@ -1,13 +1,15 @@
 //JS for the camera function. Also saves it to the server database.
 function setup() {
 
+noCanvas();
+
   let constraints = {
     video: {
         minwidth: 375,
         minheight: 812,
-        facingMode: {
-         exact: "environment"
-      },
+        //facingMode: {
+       //  exact: "environment"
+     // },
     },
   audio: false
   };
@@ -16,11 +18,14 @@ function setup() {
     console.log(stream);
   });
 
+
+
   video.parent('cameraContainer');
 
   const button = document.getElementById('submit');
   button.addEventListener('click', async event => {
     video.loadPixels();
+
     const image64 = video.canvas.toDataURL();
     const data = {image64};
     const options = {
@@ -35,3 +40,4 @@ function setup() {
     console.log(json);
   });
 }
+

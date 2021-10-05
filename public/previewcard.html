@@ -20,32 +20,33 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!--HTML2Canvas Script-->
+  <script src="/assets/js/html2canvas.min.js"></script>
+  
+  <!--Preview Picture JS-->
+  <script src="/assets/js/preview.js"></script>
 
 </head>
 
 <body>
 
-<div class="navbar">
-    <div class="navbar-centered">
-        <a href="camera.html" class="active"><i class="fas fa-camera fa-2x circle"></i></a>
-    </div>
-    <a href="profile.html"><i class="fas fa-user fa-2x"></i></a>
-    <a href="collection.html"><i class="fas fa-folder-open fa-2x"></i></a>
-    <div class="navbar-right">
-        <a href="trading.html"><i class="fas fa-arrows-alt-h fa-2x"></i></a>
-        <a href="voting.html"><i class="fas fa-vote-yea fa-2x"></i></a>
-    </div>
-</div>
-    
-    <main id="main">
-        <h1>Camera</h1>
-        <hr>
-        <!--Insert code for using camera and recognising QR Code-->
-        <h1>Scan QR Code</h1>
-        <a href="choosebackground.html">click to go to next page</a>
-  
-    </main><!-- End #main -->
+ 
 
+    <main class="main">
+        <h1>Preview Card</h1>
+        <hr>
+        <!--Turn this into a Canvas-->
+        <div id="cardContainer">
+          <img class="tradingcardContainer" src="assets/images/Trading Card Template.png">
+          <img class="imageContainer">
+        </div>
+        <div id="chooseTheme">
+        <h1>Choose Theme</h1>
+        </div>
+        <div id="saveCard">
+          <button onclick="saveCardImage();">Print and Save Card</button>
+        </div>
+    </main><!-- End #main -->
 </body>
 
 </html>
