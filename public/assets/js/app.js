@@ -27,7 +27,8 @@ noCanvas();
     video.loadPixels();
 
     const image64 = video.canvas.toDataURL();
-    const data = {image64};
+    const imageType = "RawImage";
+    const data = {image64, imageType};
     const options = {
         method: 'POST',
         headers: {

@@ -23,8 +23,12 @@
   <!--HTML2Canvas Script-->
   <script src="/assets/js/html2canvas.min.js"></script>
   
-  <!--Preview Picture JS-->
+  <!--Preview Picture and Save Picture JS-->
   <script src="/assets/js/preview.js"></script>
+
+  <!--p5.js Script-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js" integrity="sha512-P/Je1zlTfRugG4aRZRx9hYRVph2CkbpchkgP6ub1gNF/VNHDUNq0/WOY0CSLMmwEXxrQ7HohFmMenWGpx8ZzvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js" integrity="sha512-hAm8hj9/2EIonvS+sf0G3anaY8zYHv6q7ktNlLTg8wLwFvhUavnDdH0gif8SA3U1kN0lyKBWbf1wD4+5BfaMMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -37,14 +41,14 @@
         <hr>
         <!--Turn this into a Canvas-->
         <div id="cardContainer">
-          <img class="tradingcardContainer" src="assets/images/Trading Card Template.png">
           <img class="imageContainer">
+          <h1>Insert Title Here</h1>
         </div>
         <div id="chooseTheme">
         <h1>Choose Theme</h1>
         </div>
         <div id="saveCard">
-          <button onclick="saveCardImage();">Print and Save Card</button>
+          <button id="saveImage">Save and Print</button>
         </div>
     </main><!-- End #main -->
 </body>
