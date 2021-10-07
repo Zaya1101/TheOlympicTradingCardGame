@@ -4,6 +4,8 @@ const express = require('express');
 const Datastore = require('nedb');
 const app = express();
 
+app.use(bodyParser.json());
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`Starting server at ${port}`)
@@ -33,3 +35,4 @@ app.post('/api', (request, response) => {
     database.insert(data);
     response.json(data);
 });
+
