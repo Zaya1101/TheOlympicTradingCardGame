@@ -10,7 +10,7 @@ app.listen(port, () => {
 });
 
 app.use(express.static('public'));
-app.use(express.json({limit: '5mb'}));
+app.use(express.json({limit: '10mb'}));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
