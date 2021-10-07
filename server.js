@@ -1,10 +1,9 @@
 //JS for the server
 const { request, response } = require('express');
 const express = require('express');
+const bodyParser = require('body-parser')
 const Datastore = require('nedb');
 const app = express();
-
-app.use(bodyParser.json());
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
@@ -13,6 +12,7 @@ app.listen(port, () => {
 
 app.use(express.static('public'));
 app.use(express.json({limit: '10mb'}));
+app.use(express.urlencoded({extended: true}));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
