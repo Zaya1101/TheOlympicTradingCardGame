@@ -12,7 +12,7 @@ app.listen(port, () => {
 
 app.use(express.static('public'));
 app.use(express.json({limit: '10mb'}));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: false}));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
