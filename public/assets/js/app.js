@@ -39,20 +39,8 @@ noCanvas();
     const response = await fetch('/api', options); 
     const json = await response.json();
     console.log(json);
+
+    setTimeout( function() { window.location.href = "previewcard.html" }, 2000 );
   });
 }
-
-function linkDelay(ev) {
-  ev.preventDefault();                    // prevent default anchor behavior
-  const goTo = this.getAttribute("href"); // store anchor href
-
-  // do something while timeOut ticks ... 
-
-  setTimeout(function(){
-    window.location = goTo;
-  }, 3000);                               // time in ms
-}; 
-
-document.querySelectorAll(".waitBeforeNavigate")
-  .forEach(EL => EL.addEventListener("click", linkDelay));
 
