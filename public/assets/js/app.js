@@ -7,9 +7,10 @@ noCanvas();
     video: {
         minwidth: 375,
         minheight: 812,
-       // facingMode: {
-        // exact: "environment"
-      //},
+        aspectRatio: 16/9,
+       facingMode: {
+        exact: "environment"
+      },
     },
   audio: false
   };
@@ -40,7 +41,7 @@ noCanvas();
     const json = await response.json();
     console.log(json);
 
-    setTimeout( function() { window.location.href = "previewcard.html" }, 2000 );
+    setTimeout( function() { window.location.href = "previewcard.html" }, 1000 );
   });
 }
 

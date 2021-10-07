@@ -9,7 +9,6 @@ async function getData() {
         //Could add an if statement here to only allow raw images to appear but it would be impossible
         //for the user to break the preview if they use the app naturally.
 
-        const root = document.querySelector('#cardContainer');
         const cardImage = document.querySelector('.imageContainer');
  
         var current_max = 0;
@@ -33,6 +32,10 @@ async function getData() {
 }
 
 function setup() {
+
+    //Add theme functionality, attatch example below to different buttons
+    
+    //document.getElementById("p2").style.color="blue";
 
 
     //Button that saves and prints image

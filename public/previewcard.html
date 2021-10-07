@@ -12,7 +12,9 @@
 
 
   <!-- Google Fonts -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons -->
   <link href="assets/css/all.css" rel="stylesheet">
@@ -41,19 +43,24 @@
         <hr>
         <!--Turn this into a Canvas-->
         <div id="cardContainer">
-          <img class="imageContainer">
-          <div id="cardName" contenteditable="true">
-            <h1>Insert Name Here</h1>
+          <div class="imageContainerParent">
+            <img class="imageContainer">
           </div>
-          
+          <div class="bottomShape">
+            <div id="cardName" contenteditable="true">
+              <h1>Insert Name Here</h1>
+            </div>
+          </div>
         </div>
         <div id="chooseTheme">
         <h1>Choose Theme</h1>
         </div>
-        <div id="saveCard">
-          <button id="saveImage">Save and Print</button>
-        </div>
     </main><!-- End #main -->
+
+    <div id="saveCard">
+      <button id="saveImage" class="nextPage"><h1>Save and Print <i class="fas fa-arrow-right"></i></h1></button>
+    </div>
+
 </body>
 
 </html>
