@@ -45,8 +45,8 @@ function setup() {
         window.scrollTo(0, 0);
  
     // Convert the div to image (canvas)
+    
     html2canvas(document.getElementById("cardContainer")).then(function (canvas) {
- 
         const image64 = canvas.toDataURL("image/png");
         const imageType = "TradingCard";
         const data = {image64, imageType};
