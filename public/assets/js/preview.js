@@ -62,6 +62,6 @@ function setup() {
         return fetch('/api', options)
       }); 
       
-    setTimeout( function() { window.location.href = "picturesuccess.html" }, 1000 );
+    setTimeout( function() { window.location.href = "picturesuccess.html" }, 2000 );
     });
 }

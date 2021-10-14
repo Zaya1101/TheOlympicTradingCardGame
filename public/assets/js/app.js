@@ -5,7 +5,7 @@ noCanvas();
 
   let constraints = {
     video: {
-      minwidth: 375,
+      minwidth: 414,
       minheight: 812,
       aspectRatio: 16/9,
       facingMode: {
