@@ -7,7 +7,6 @@ noCanvas();
     video: {
       minwidth: 414,
       minheight: 812,
-      aspectRatio: 16/9,
       facingMode: {
         exact: "environment"
       },
