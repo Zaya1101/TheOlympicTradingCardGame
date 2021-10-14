@@ -1,5 +1,4 @@
 //JS for the Collection page that requests the trading card data from the server.
-
 getData();
 
 async function getData() {
@@ -36,7 +35,7 @@ function setup() {
     //Add theme functionality, attatch example below to different buttons
     
     //document.getElementById("p2").style.color="blue";
-
+    //https://stackoverflow.com/questions/42155317/override-global-css-with-pure-javascript/42155495
 
     //Button that saves and prints image
     const button = document.getElementById('saveImage');
@@ -46,10 +45,13 @@ function setup() {
  
     // Convert the div to image (canvas)
     
-    html2canvas(document.getElementById("cardContainer")).then(function (canvas) {
+    html2canvas(document.getElementById('cardContainer')).then(function (canvas) {
         const image64 = canvas.toDataURL("image/png");
         const imageType = "TradingCard";
-        const data = {image64, imageType};
+        const favourite = false;
+        const stars = 0;
+        const rarity = "common";
+        const data = {image64, imageType, favourite, stars, rarity};
         const options = {
             method: 'POST',
             headers: {
@@ -58,6 +60,8 @@ function setup() {
             body: JSON.stringify(data)
         };
         return fetch('/api', options)
-      });
+      }); 
+      
+    setTimeout( function() { window.location.href = "picturesuccess.html" }, 1000 );
     });
 }

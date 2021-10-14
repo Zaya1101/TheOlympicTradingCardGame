@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Bottom Nav Bar */
@@ -91,8 +94,7 @@ h1 {
     top: 0;
     width: 100%;
     height: 120px;
-    transform: skewY(-4deg);
-
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
 }
 
 .welcomeback {
@@ -102,19 +104,68 @@ h1 {
 .title {
     color: #00843D;
     margin: 0;
-    padding-top: 10%;
-    transform: skewY(4deg);
-    font-size: 30px;
+    padding-top: 40px;
+    font-size: 28px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.favourite_cards {
+    text-align: center;
+    padding-top: 2%;
+}
+
+.placeholderCard {
+    display: inline-block;
+    margin-right: 10px;
+    width: 160px;
+    height: 200px;
+    border: 2px solid black;
+}
+
+/*Collection Page*/
+
+.main_collection {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 100px;
+}
+
+.main_collection img {
+    padding: 0 10px 0 0;
+}
+
+#legendary {
+    padding: 10px;
+    color: #00843D;
+}
+
+#epic {
+    padding: 10px;
+    color: #00843D;
+}
+
+#rare {
+    padding: 10px;
+    color: #00843D;
+
+}
+
+#common {
+    padding: 10px;
+    color: #00843D;
+
+}
+
+.tierContainer {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 200px;
 }
 
 
-/*Collection Divs*/
 
-
-.card_tiers img {
-    width: 100px;
-    padding: 0 10px 5px 0;
-}
 
 /*Choose Background Div*/
 
@@ -181,7 +232,8 @@ h1 {
     height: 400px;
     border-style: solid;
     border-width: 4px;
-    border-image: linear-gradient(45deg,#0019FF, #3399FF, #0019FF, #3399FF) 1;
+    border-image: linear-gradient(45deg,#0019FF, #3399FF, #0019FF, #3399FF) 1; 
+    overflow: hidden;
    
     /*insert base style of trading card here, work out choosing different themes later*/
 }
@@ -190,6 +242,8 @@ h1 {
 
 .imageContainer {
     width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 #chooseTheme {
@@ -200,24 +254,24 @@ h1 {
     position: relative;
 }
 
+#bottomShape {
+    width: 100%;
+    height: 60%;
+}
 
-.bottomShape {
+#bottomShape img {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 60%;
-    background: linear-gradient(45deg,#0019FF, #3399FF, #0019FF, #3399FF);
-    clip-path: polygon(0 71%, 0 100%, 100% 100%, 100% 79%, 80% 83%);
     z-index: 0;
 }
 
-.bottomShape h1 {
+#bottomShape h1 {
     position: absolute;
     z-index: 1;
     bottom: 0;
     left: 0;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     margin-left: 3%;
     font-size: 25px;
     color: white;
@@ -239,7 +293,131 @@ h1 {
     color: white;
 }
 
+.nextPage h2 {
+    color: white;;
+}
+
+#backMenu {
+    position: relative;
+}
+
 
 [contenteditable] {
     outline: 0px solid transparent;
 }
+
+/*Trading Card Success Page */
+
+#success {
+    font-size: 50pt;
+    padding: 7%;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    position: relative;
+    display: block;
+    transform:rotate(-10deg)
+}
+
+
+
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    display: block;
+  }
+
+  .modal-content h2 {
+    text-align: center;
+  }
+
+  .caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 15pt;
+}
+  
+  /* Modal Content (image) */
+  .modal-image-content {
+    margin: auto;
+    display: block;
+    max-width: 700px;
+  }
+  
+  /* Caption of Modal Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation */
+  .modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    display: inline-block;
+    top: 15px;
+    right: 35px;
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .viewAR {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+  

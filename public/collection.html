@@ -7,25 +7,25 @@
 
   <title>Collection</title>
 
-
-  <!-- Favicons -->
-
-
-  <!-- Google Fonts -->
-
-
   <!-- FontAwesome Icons -->
   <link href="assets/css/all.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  
+
+  <!--Micromodal-->
+  <script src="/assets/js/micromodal.min.js"></script>
+
+  <!--Main JS File-->
+  <script src="/assets/js/logs.js"></script>
 
 </head>
 
 <body>
 
-    <script src="/assets/js/logs.js"></script>
+
 
 <div class="navbar">
     <div class="navbar-centered">
@@ -39,17 +39,49 @@
     </div>
 </div>
     
-    <main id="main">
-        <a href="index.html"><i class="fas fa-arrow-left fa-2x"></i></a>
-        <h1>My Collection</h1>
-        <hr>
+<div class="top_page">
+    <a href="index.html"><i class="fas fa-arrow-left fa-2x backArrow" style="position: absolute;"></i></a>
+    <h1 class="title">Collection</h1>
+</div>  
+
+    <main class="main_collection">
+
+    <div id="legendary">
+        <h2>Legendary</h2>
+        <p class="noLegendaryCards">No cards at this tier<i class="far fa-sad-tear" style="padding-left: 5px;"></i></p>
+    </div>
+
+   <div id="epic">
+        <h2>Epic</h2>
+        <p id="noEpicCards">No cards at this tier<i class="far fa-sad-tear" style="padding-left: 5px;"></i></p>
+    </div>
+
+    <div id="rare">
+        <h2>Rare</h2>
+        <p id="noRareCards">No cards at this tier<i class="far fa-sad-tear" style="padding-left: 5px;"></i></p>
+    </div>
+
+    <div id="common">
+        <h2>Common</h2>
+        <p id="noCommonCards">No cards at this tier<i class="far fa-sad-tear" style="padding-left: 5px;"></i></p>
+    </div>
+
+</div>
+
+</main>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+            <img class="modal-image-content" id="img01">
+            <div class="text_alignment"></div>
+            <span class="caption" id="starAmount"></span>
         
+        <h2 id="date"></h2>
+        <button class="viewAR"><h1>View Card in AR</h1></button>
+    </div>
+    </div>
 
-  
-        <div class="spacing">
-        </div>
-    </main><!-- End #main -->
-
+    <div id="caption"></div>
+  </div>
 </body>
-
 </html>
