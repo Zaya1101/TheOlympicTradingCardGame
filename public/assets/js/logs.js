@@ -10,13 +10,15 @@ async function getData() {
 
         if (item.imageType == "TradingCard") {
 
+            const image = document.createElement('img');
+
             if(item.rarity == "legendary") {
 
                 const root = document.querySelector('#legendary');
-                const image = document.createElement('img');
+                
 
                 root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px';
+                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #FFDB51;';
     
                 image.src = item.image64;
 
@@ -25,33 +27,20 @@ async function getData() {
 
                 const hideMessage = document.getElementById('noLegendaryCards');
                 hideMessage.style.cssText = "display: none;";
-
-                const modal = document.getElementById("myModal");
-                const modalImg = document.getElementById("img01");
-                const span = document.getElementsByClassName("close")[0];
-                image.onclick = function(){
-                    modal.style.display = "block";
-                    modalImg.src = image.src;
-                }
-                span.onclick = function() { 
-                    modal.style.display = "none";
-                }
             }
 
             if(item.rarity == "epic") {
 
                 const root = document.querySelector('#epic');
                 const link = document.createElement('a');
-                const image = document.createElement('img');
+                
 
                 link.className = 'collectionCardContainer';
 
                 root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px';
+                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #9400D3;';
     
                 image.src = item.image64;
-
-                
 
                 root.append(link);
                 link.append(image);
@@ -59,32 +48,14 @@ async function getData() {
 
                 const hideMessage = document.getElementById('noEpicCards');
                 hideMessage.style.cssText = "display: none;";
-
-                const modal = document.getElementById("myModal");
-                const modalImg = document.getElementById("img01");
-                const stars = document.getElementById("starAmount")
-                const span = document.getElementsByClassName("close")[0];
-                const modalDate = document.getElementById("date");
-                const dateString = new Date(item.timestamp).toLocaleDateString();
-                image.onclick = function(){
-                    modal.style.display = "block";
-                    modalImg.src = image.src;
-                    modalDate.innerText = `Created on: ${dateString}`;
-                    stars.innerHTML = `<i class="fas fa-star" style="padding-right: 5px; color: #FFCD00;"></i> Stars: ${item.stars}`
-                }
-                span.onclick = function() { 
-                    modal.style.display = "none";
-                }
-
-
             } 
 
             if(item.rarity == "rare") {
                 const root = document.querySelector('#rare');
-                const image = document.createElement('img');
+                
 
                 root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px';
+                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #4195fc;';
     
                 image.src = item.image64;
 
@@ -97,25 +68,13 @@ async function getData() {
                 const hideMessage = document.getElementById('noRareCards');
                 hideMessage.style.cssText = "display: none;";
 
-                
-                const modal = document.getElementById("myModal");
-                const modalImg = document.getElementById("img01");
-                const span = document.getElementsByClassName("close")[0];
-                image.onclick = function(){
-                    modal.style.display = "block";
-                    modalImg.src = image.src;
-                }
-                span.onclick = function() { 
-                    modal.style.display = "none";
-                }
             } 
 
             if(item.rarity == "common") {
                 const root = document.querySelector('#common');
-                const image = document.createElement('img');
 
                 root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px';
+                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #808080;';
 
                 image.src = item.image64;
 
@@ -127,18 +86,45 @@ async function getData() {
                 const hideMessage = document.getElementById('noCommonCards');
                 hideMessage.style.cssText = "display: none;";
                 
-                const modal = document.getElementById("myModal");
-                const modalImg = document.getElementById("img01");
-                const span = document.getElementsByClassName("close")[0];
-                image.onclick = function(){
-                    modal.style.display = "block";
-                    modalImg.src = image.src;
-                }
-                span.onclick = function() { 
-                    modal.style.display = "none";
-                }
             } 
+
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            const stars = document.getElementById("starAmount")
+            const span = document.getElementsByClassName("close")[0];
+            const modalDate = document.getElementById("date");
+            const dateString = new Date(item.timestamp).toLocaleDateString();
+            const favouriteIcon = document.getElementById("favouriteIcon");
+            const favouriteStatus = item.favourite;
+            image.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = image.src;
+                modalDate.innerText = `Created on: ${dateString}`;
+                stars.innerHTML = `<i class="fas fa-star" style="padding-right: 5px; color: #FFCD00;"></i> Stars: ${item.stars}`
+            }
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
+
+            if(favouriteStatus == true) {
+                favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
+            } else {
+                favouriteIcon.innerHTML = `<i class="far fa-heart"></i>`;
+            }
+
+            //Fix this its not working. If it doesn't end up working, just make the favourite cards on the homepage randomised.
+            favouriteIcon.addEventListener('click', async event => {
+                if(favouriteStatus == true) {
+                    data.favourite = false;
+                    favouriteIcon.innerHTML = `<i class="far fa-heart"></i>`;
+                } else if (favouriteStatus == false) {
+                    data.favourite = true;
+                    favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
+                }
+            });
         }
+
+        
 
         const allImages = document.querySelectorAll('img:not(.modal-image-content)'); 
 
@@ -151,11 +137,9 @@ async function getData() {
 }
 
 function setup() {
-    //Micromodal code goes here
-    //Also use div ids of the trading card image containers to display them in the modal.
+    //Code that adds stars to cards when clicked (just for demonstration purposes, can't really make the voting function work without databases and PHP.)
 
-    //Event listener on the trading card images that opens the modal with the image that was just clicked. Not sure how to do this, check https://www.w3schools.com/howto/howto_css_modal_images.asp
-    
+    //Code that favourites the card and allows it to be seen on the home screen. 
 }
 
 

@@ -132,27 +132,23 @@ h1 {
 }
 
 .main_collection img {
-    padding: 0 10px 0 0;
+    margin: 0 10px 0 0;
 }
 
 #legendary {
-    padding: 10px;
     color: #00843D;
 }
 
 #epic {
-    padding: 10px;
     color: #00843D;
 }
 
 #rare {
-    padding: 10px;
     color: #00843D;
 
 }
 
 #common {
-    padding: 10px;
     color: #00843D;
 
 }
@@ -241,8 +237,6 @@ h1 {
     border-width: 4px;
     border-image: linear-gradient(45deg,#0019FF, #3399FF, #0019FF, #3399FF) 1; 
     overflow: hidden;
-   
-    /*insert base style of trading card here, work out choosing different themes later*/
 }
 
 
@@ -308,9 +302,15 @@ h1 {
     position: relative;
 }
 
-
 [contenteditable] {
     outline: 0px solid transparent;
+}
+
+.hat {
+    position: relative;
+    width: 150px;
+    height: auto;
+    cursor: pointer;
 }
 
 /*Trading Card Success Page */
@@ -356,33 +356,50 @@ h1 {
     text-align: center;
   }
 
-  .caption {
+  .text_alignment {
+    width: 80%;
     margin: auto;
     display: block;
-    width: 80%;
+  }
+
+  .caption {
+    margin: auto;
+    width: 49%;
     max-width: 700px;
-    text-align: center;
+    text-align: left;
     padding: 10px 0;
     font-size: 15pt;
+    text-align: left;
+    display: inline-block;
+}
+
+.caption2 {
+    margin: auto;
+    width: 49%;
+    max-width: 700px;
+    text-align: left;
+    padding: 10px 0;
+    font-size: 15pt;
+    text-align: right;
+    display: inline-block;
+}
+
+.noStyle {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
   
   /* Modal Content (image) */
   .modal-image-content {
+    width: 100%;
     margin: auto;
     display: block;
     max-width: 700px;
-  }
-  
-  /* Caption of Modal Image */
-  #caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
   }
   
   /* Add Animation */
