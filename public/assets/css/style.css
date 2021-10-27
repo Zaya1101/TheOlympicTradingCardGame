@@ -306,7 +306,7 @@ h1 {
     outline: 0px solid transparent;
 }
 
-.hat {
+.dragme {
     position: relative;
     width: 150px;
     height: auto;
