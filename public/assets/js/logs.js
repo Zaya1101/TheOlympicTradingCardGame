@@ -100,7 +100,7 @@ async function getData() {
                 modal.style.display = "block";
                 modalImg.src = image.src;
                 modalDate.innerText = `Created on: ${dateString}`;
-                stars.innerHTML = `<i class="fas fa-star" style="padding-right: 5px; color: #FFCD00;"></i> Stars: ${item.stars}`
+                stars.innerHTML = `<i class="fas fa-star" style="padding-right: 5px; color: #FFCD00;"></i> Stars: ${item.stars}`;
             }
             span.onclick = function() { 
                 modal.style.display = "none";
