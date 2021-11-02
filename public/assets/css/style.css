@@ -93,6 +93,7 @@ h1 {
     background-color: #FFCD00;
     top: 0;
     width: 100%;
+    position: sticky;
     height: 120px;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
 }
@@ -463,3 +464,10 @@ h1 {
     width: 80%;
   }
   
+  /*Digital Backdrop*/
+
+.backdrop {
+      background-image: url("../images/Digital Backdrop Homepage.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
