@@ -117,9 +117,11 @@ async function getData() {
                 if(favouriteStatus == true) {
                     data.favourite = false;
                     favouriteIcon.innerHTML = `<i class="far fa-heart"></i>`;
+                    console.log(data.favourite);
                 } else if (favouriteStatus == false) {
                     data.favourite = true;
                     favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
+                    console.log(JSON.stringify(data.favourite));
                 }
             });
         }

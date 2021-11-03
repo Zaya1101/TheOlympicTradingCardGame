@@ -84,6 +84,15 @@ body {
 
 h1 {
     text-align: center;
+    color: #00843D;
+}
+
+h2 { 
+    color: #00843D;
+}
+
+p {
+    color: #00843D;
 }
 
 
@@ -181,16 +190,16 @@ h1 {
 
 /*Choose Pose Page*/
 
+.choose_pose {
+    text-align: center;
+}
+
 .choose_pose img {
     padding: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 60%;
-}
-
-.choose_pose h2 {
-    text-align: center;
 }
 
 
@@ -466,8 +475,15 @@ h1 {
   
   /*Digital Backdrop*/
 
-.backdrop {
+#backdrop {
       background-image: url("../images/Digital Backdrop Homepage.png");
       background-size: cover;
       background-repeat: no-repeat;
   }
+
+#backdrop_pose {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
