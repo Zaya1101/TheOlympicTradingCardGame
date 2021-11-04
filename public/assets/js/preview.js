@@ -14,13 +14,16 @@ async function getData() {
 
         //Cycles through images in database and displays the most recent entry
         for (var i = 0; i < data.length; i++) {
-            if (data[i].timestamp > current_timestamp) {
-                current_timestamp = data[i].timestamp;
+        var timestamp = Date.parse(data[i].createdAt);
+            if (timestamp > current_timestamp) {
+                console.log("working");
+                current_timestamp = Date.parse(data[i].createdAt);
                 current_max = i;
             } 
         }
 
         cardImage.src = data[current_max].image64;
+
 
         //root.append(image);
         //document.body.append(root);

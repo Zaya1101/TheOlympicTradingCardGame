@@ -70,7 +70,7 @@ async function getData() {
 
             } 
 
-            if(item.rarity == "common") {
+            if(item.rarity == "common") { //SORT BY STARS INSTEAD OF RARITY 
                 const root = document.querySelector('#common');
 
                 root.style.cssText = 'padding: 10px;';
@@ -93,18 +93,19 @@ async function getData() {
 
             const modal = document.getElementById("myModal");
             const modalImg = document.getElementById("img01");
-            const stars = document.getElementById("starAmount")
+            const stars = document.getElementById("amount")
             const span = document.getElementsByClassName("close")[0];
             const modalDate = document.getElementById("date");
             const dateString = new Date(item.createdAt).toLocaleDateString();
             const favouriteIcon = document.getElementById("favouriteIcon");
+            const starsIcon = document.getElementById("addStars");
             const modalImageID = image.getAttribute("cardID");
 
             image.onclick = function(){
                 modal.style.display = "block";
                 modalImg.src = image.src;
                 modalDate.innerText = `Created on: ${dateString}`;
-                stars.innerHTML = `<i class="fas fa-star" style="padding-right: 5px; color: #FFCD00;"></i> Stars: ${item.stars}`;
+                stars.innerHTML = ` ${item.stars}`; //MAKE STARS RELATIVE TO TRADINGCARD SELECTED
                 console.log(modalImageID);
 
                 favouriteIcon.addEventListener('click', async event => {
@@ -117,23 +118,44 @@ async function getData() {
                         favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
                         
                     }
-                        const favouriteStatus = item.favourite;
-                        const data = {modalImageID, favouriteStatus};
-                        const options = {
-                        method: 'PUT',
+                    const favouriteStatus = item.favourite;
+                    const data = {modalImageID, favouriteStatus};
+                    const options = {
+                        method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify(data),
+                    body: JSON.stringify(data),
                     };
+
                     console.log(modalImageID);
 
                     span.onclick = function() { 
                         modal.style.display = "none";
                         location.reload();
                     } 
+                    return fetch('/api/setfavourite', options)
+                });
 
-                    return fetch('/all-card-images', options)
+                starsIcon.addEventListener('click', async event => {
+                    var addStarsButton = item.stars;
+                    addStarsButton++;
+                    console.log(addStarsButton);
+
+                    span.onclick = function() { 
+                        modal.style.display = "none";
+                        const starAmount = addStarsButton;
+                        const data = {modalImageID, starAmount};
+                        const options = {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                        body: JSON.stringify(data),
+                        };
+                        setTimeout(location.reload.bind(location), 1000);
+                        return fetch('/api/setstars', options)
+                    } 
                 });
 
                 span.onclick = function() { 

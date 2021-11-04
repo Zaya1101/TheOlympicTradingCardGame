@@ -53,6 +53,38 @@ app.post('/api', (request, response) => {
     response.json(data);
 });
 
+app.patch('/api/setfavourite', (request, response) => {
+    const data = request.body;
+    const favouriteStatus = request.body.favouriteStatus;
+    const id = request.body.modalImageID;
+
+    cardImage.findOneAndUpdate({_id: id}, {favourite: favouriteStatus})
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });   
+    response.json(data);
+    console.log(id, favouriteStatus);
+});
+
+app.patch('/api/setstars', (request, response) => {
+    const data = request.body;
+    const starAmount = request.body.starAmount;
+    const id = request.body.modalImageID;
+    
+    cardImage.findOneAndUpdate({_id: id}, {stars: starAmount})
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });   
+    response.json(data);
+    console.log(id, starAmount);
+});
+
 app.get('/all-raw-images', (request, response) => {
     rawImage.find()
     .then((result) => {
@@ -73,11 +105,28 @@ app.get('/all-card-images', (request, response) => {
     });
 });
 
-app.patch('/all-card-images', (request, response) => {
-    const favouriteValue = request.body.favouriteStatus;
-    const idValue = request.body.modalImageID;
-    response.json(favouriteValue);
-    console.log(idValue);
-    console.log(favouriteValue);
+app.get('/all-backgrounds', (request, response) => {
+    backgroundImage.find()
+    .then((result) => {
+        response.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    });
 });
 
+app.patch('/all-backgrounds/setbackground', (request, response) => {
+    const data = request.body;
+    const backgroundType = request.body.backgroundImage;
+    const id = "61839285c27501d0f2369ba1";
+    
+    backgroundImage.findOneAndUpdate({_id: id}, {background: backgroundType})
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });   
+    response.json(data);
+    console.log(id, backgroundType);
+});

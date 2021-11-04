@@ -1,24 +1,28 @@
-window.onload=function() {
-    window.addEventListener('storage', () => {
-        location.reload();
-    });
+async function getData() {
+
+    const response = await fetch('/all-backgrounds');
+    const data = await response.json();
+        
+    setTimeout(getData, 5000);
+
+
     const backgroundImage = document.getElementById('backdrop');
-    if(localStorage.getItem('background') === 'aus_olympic_team') {
+    if(data[0].background === 'aus_olympic_team') {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/aus_olympic_team.jpg");'
     }
-    if(localStorage.getItem('background') === 'cycling') {
+    if(data[0].background === 'cycling') {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/cycling.jpg");'
     }
-    if(localStorage.getItem('background') === 'rings') {
+    if(data[0].background === 'olympic_rings') {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/olympic_rings.jpg");'
     }
-    if(localStorage.getItem('background') === 'pool') {
+    if(data[0].background === 'swimming_pool') {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/pool.jpg");'
     }
-    if(localStorage.getItem('background') === 'trampoline') {
+    if(data[0].background === 'trampoline') {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/trampoline.jpg");'
     }
-    if(localStorage.getItem('background') === 'waterpolo') {
+    if(data[0].background === 'water_polo') {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/water_polo.jpg");'
     }
 
@@ -50,4 +54,6 @@ window.onload=function() {
     if(localStorage.getItem('pose') === 'weightlifting') {
         backdropPose.src = "assets/images/poses/weightlifting.png"
     }
+
 }
+getData();
