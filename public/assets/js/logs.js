@@ -2,7 +2,7 @@
 MicroModal.init();
 getData();
 async function getData() {
-    const response = await fetch('/api');
+    const response = await fetch('/all-card-images');
     const data = await response.json();
     
     for (item of data) {
@@ -96,7 +96,7 @@ async function getData() {
             const stars = document.getElementById("starAmount")
             const span = document.getElementsByClassName("close")[0];
             const modalDate = document.getElementById("date");
-            const dateString = new Date(item.timestamp).toLocaleDateString();
+            const dateString = new Date(item.createdAt).toLocaleDateString();
             const favouriteIcon = document.getElementById("favouriteIcon");
             const modalImageID = image.getAttribute("cardID");
 
@@ -127,14 +127,19 @@ async function getData() {
                         body: JSON.stringify(data),
                     };
                     console.log(modalImageID);
-                    return fetch('/api', options)
-                });
-            }
-            span.onclick = function() { 
-                modal.style.display = "none";
-                location.reload();
 
-            } 
+                    span.onclick = function() { 
+                        modal.style.display = "none";
+                        location.reload();
+                    } 
+
+                    return fetch('/all-card-images', options)
+                });
+
+                span.onclick = function() { 
+                    modal.style.display = "none";
+                } 
+            }
 
             //IF STATEMENT CHECKING IF FUNCTION IS ACTIVE, THEN SET ATTRIBUTE "CLICKED" TO "YES". FOR CARDS WITH = "YES", RUN PUT FUNCTION 
 

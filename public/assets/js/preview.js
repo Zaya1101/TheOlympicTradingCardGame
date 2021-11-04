@@ -1,7 +1,7 @@
 getData();
 
 async function getData() {
-    const response = await fetch('/api');
+    const response = await fetch('/all-raw-images');
     const data = await response.json();
 
         //Could add an if statement here to only allow raw images to appear but it would be impossible

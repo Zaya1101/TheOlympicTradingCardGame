@@ -1,72 +1,81 @@
 //JS for the server
-/*const aws = require('aws-sdk');
-const config = require('./config.json')
 
-(async function() {
-    try {
-        aws.config.setPromisesDependency();
-        aws.config.update({
-            accessKeyId: config.aws.accessKey,
-            secretAccessKey: config.aws.secretKey,
-            region: 'ap-southeast-2'
-        });
-
-        const s3 = new aws.S3();
-        const response = await s3.listObjectsV2({
-            Bucket: 'digitalbackdropvalues'
-        }).promise();
-    
-        console.log(response);
-
-    } catch (e) {
-        console.log('our error', e);
-    }
-})();*/
-
-
-const { request, response, Router } = require('express');
+//const { request, response, Router } = require('express');
 const express = require('express');
 const bodyParser = require('body-parser')
-const Datastore = require('nedb');
+const mongoose = require('mongoose');
+const cardImage = require('./models/tradingCardImages')
+const rawImage = require('./models/rawImages')
+const backgroundImage = require('./models/backgroundImages')
+//const Datastore = require('nedb');
 //const multer = require('multer');
 //const upload = multer({ dest: 'uploads/' });
 const app = express();
 
+const dbURI = 'mongodb+srv://administrator:Isaiah01@images.5xl03.mongodb.net/card-images?retryWrites=true&w=majority';
 const port = process.env.PORT || 3000
-app.listen(port, () => {
-    console.log(`Starting server at ${port}`)
-});
+mongoose.connect(dbURI)
+    .then((result) => app.listen(port) && console.log(`Starting server at ${port} and connected to db`))
+    .catch((err) => console.log(err));
 
 app.use(express.static('public'));
 app.use(express.json({limit: '10mb'}));
 app.use(express.urlencoded({extended: false}));
 
-const imageDatabase = new Datastore('database.db');
-imageDatabase.loadDatabase();
-
-
-app.get('/api', (request, response) => {
-    imageDatabase.find ({}, (err, data) => {
-        if (err) {
-            response.end();
-            return;
-        }
-        response.json(data);
-    });
-});
+//const database = new Datastore('database.db');
+//database.loadDatabase();
 
 app.post('/api', (request, response) => {
     const data = request.body;
     const timestamp = Date.now();
     data.timestamp = timestamp;
-    imageDatabase.insert(data);
+
+    if (data.imageType === "RawImage") {
+        const sendRawImage = new rawImage(data)
+        sendRawImage.save()
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    }
+    if (data.imageType === "TradingCard") {
+        const sendCardImage = new cardImage(data)
+        sendCardImage.save()
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    }        
     response.json(data);
 });
 
-app.put('/api', (request, response) => {
+app.get('/all-raw-images', (request, response) => {
+    rawImage.find()
+    .then((result) => {
+        response.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    });
+});  
+
+app.get('/all-card-images', (request, response) => {
+    cardImage.find()
+    .then((result) => {
+        response.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    });
+});
+
+app.patch('/all-card-images', (request, response) => {
     const favouriteValue = request.body.favouriteStatus;
     const idValue = request.body.modalImageID;
-    //imageDatabase.update({_id: idValue}, {$set: { favourite: favouriteValue}}, {}, function(){});
     response.json(favouriteValue);
     console.log(idValue);
     console.log(favouriteValue);
