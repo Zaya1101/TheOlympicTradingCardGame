@@ -9,7 +9,7 @@ noCanvas();
       minheight: 812,
       //facingMode: {
       //  exact: "environment"
-     // },
+      //},
     },
   audio: false
   };

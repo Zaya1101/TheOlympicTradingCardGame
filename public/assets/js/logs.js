@@ -78,6 +78,9 @@ async function getData() {
 
                 image.src = item.image64;
 
+                image.setAttribute("cardID", item._id);
+                image.setAttribute("clicked", "no")
+
                 image.onclick = function(){openModal()};
 
                 root.append(image);
@@ -95,35 +98,54 @@ async function getData() {
             const modalDate = document.getElementById("date");
             const dateString = new Date(item.timestamp).toLocaleDateString();
             const favouriteIcon = document.getElementById("favouriteIcon");
-            const favouriteStatus = item.favourite;
+            const modalImageID = image.getAttribute("cardID");
+
             image.onclick = function(){
                 modal.style.display = "block";
                 modalImg.src = image.src;
                 modalDate.innerText = `Created on: ${dateString}`;
                 stars.innerHTML = `<i class="fas fa-star" style="padding-right: 5px; color: #FFCD00;"></i> Stars: ${item.stars}`;
+                console.log(modalImageID);
+
+                favouriteIcon.addEventListener('click', async event => {
+                    if(item.favourite == true) {
+                        item.favourite = false;
+                        favouriteIcon.innerHTML = `<i class="far fa-heart"></i>`;
+                        
+                    } else if (item.favourite == false) {
+                        item.favourite = true;
+                        favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
+                        
+                    }
+                        const favouriteStatus = item.favourite;
+                        const data = {modalImageID, favouriteStatus};
+                        const options = {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data),
+                    };
+                    console.log(modalImageID);
+                    return fetch('/api', options)
+                });
             }
             span.onclick = function() { 
                 modal.style.display = "none";
-            }
+                location.reload();
 
-            if(favouriteStatus == true) {
+            } 
+
+            //IF STATEMENT CHECKING IF FUNCTION IS ACTIVE, THEN SET ATTRIBUTE "CLICKED" TO "YES". FOR CARDS WITH = "YES", RUN PUT FUNCTION 
+
+            if(item.favourite == true) {
                 favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
             } else {
                 favouriteIcon.innerHTML = `<i class="far fa-heart"></i>`;
             }
 
             //Fix this its not working. If it doesn't end up working, just make the favourite cards on the homepage randomised.
-            favouriteIcon.addEventListener('click', async event => {
-                if(favouriteStatus == true) {
-                    data.favourite = false;
-                    favouriteIcon.innerHTML = `<i class="far fa-heart"></i>`;
-                    console.log(data.favourite);
-                } else if (favouriteStatus == false) {
-                    data.favourite = true;
-                    favouriteIcon.innerHTML = `<i class="fas fa-heart" style="color: red;"></i>`;
-                    console.log(JSON.stringify(data.favourite));
-                }
-            });
+
         }
 
         
