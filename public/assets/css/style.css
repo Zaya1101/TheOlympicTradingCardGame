@@ -137,6 +137,16 @@ label {
     display: inline-block;
 }
 
+.favourite_cards {
+    text-align: center;
+}
+
+.favourite_cards img {
+    display: inline-block;
+    width: 170px;
+    margin: 5px;
+}
+
 .placeholderCard {
     display: inline-block;
     margin-right: 10px;

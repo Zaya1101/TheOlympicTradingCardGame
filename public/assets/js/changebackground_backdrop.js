@@ -26,7 +26,15 @@ async function getData() {
         backgroundImage.style.cssText = 'background-image: url("assets/images/backgrounds/water_polo.jpg");'
     }
 
+    if(data[0].background === '') {
+        backgroundImage.style.cssText = 'background-image: url("assets/images/Digital Backdrop Homepage.png");'
+    }
+
     const backdropPose = document.getElementById('backdrop_pose');
+    if(data[0].pose === '') {
+        backdropPose.src = "#"
+    }
+    
     if(data[0].pose === 'no_pose') {
         backdropPose.src = "#"
     }

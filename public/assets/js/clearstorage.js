@@ -6,7 +6,7 @@ async function getData() {
 
     const button1 = document.getElementById('clearScreen');
     button1.addEventListener('click', async event => { 
-    item.pose = "no-pose";
+    item.pose = "";
     item.background = "";
         const poseType = item.pose;
         const backgroundImage = item.background;
