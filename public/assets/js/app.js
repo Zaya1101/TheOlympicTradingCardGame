@@ -7,9 +7,9 @@ noCanvas();
     video: {
       minwidth: 414,
       minheight: 812,
-      //facingMode: {
-      //  exact: "environment"
-      //},
+      facingMode: {
+        exact: "environment"
+      },
     },
   audio: false
   };
