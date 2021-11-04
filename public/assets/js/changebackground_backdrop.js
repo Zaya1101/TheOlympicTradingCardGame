@@ -27,31 +27,31 @@ async function getData() {
     }
 
     const backdropPose = document.getElementById('backdrop_pose');
-    if(localStorage.getItem('pose') === 'no_pose') {
+    if(data[0].pose === 'no_pose') {
         backdropPose.src = "#"
     }
-    if(localStorage.getItem('pose') === 'archery') {
+    if(data[0].pose === 'archery') {
         backdropPose.src = "assets/images/poses/archery.png"
     }
-    if(localStorage.getItem('pose') === 'athletics') {
+    if(data[0].pose === 'athletics') {
         backdropPose.src = "assets/images/poses/athletics.png"
     }
-    if(localStorage.getItem('pose') === 'basketball') {
+    if(data[0].pose === 'basketball') {
         backdropPose.src = "assets/images/poses/basketball.png"
     }
-    if(localStorage.getItem('pose') === 'fencing') {
+    if(data[0].pose === 'fencing') {
         backdropPose.src = "assets/images/poses/fencing.png"
     }
-    if(localStorage.getItem('pose') === 'football') {
+    if(data[0].pose === 'football') {
         backdropPose.src = "assets/images/poses/football.png"
     }
-    if(localStorage.getItem('pose') === 'taekwondo') {
+    if(data[0].pose === 'taekwondo') {
         backdropPose.src = "assets/images/poses/taekwondo.png"
     }
-    if(localStorage.getItem('pose') === 'tennis') {
+    if(data[0].pose === 'tennis') {
         backdropPose.src = "assets/images/poses/tennis.png"
     }
-    if(localStorage.getItem('pose') === 'weightlifting') {
+    if(data[0].pose === 'weightlifting') {
         backdropPose.src = "assets/images/poses/weightlifting.png"
     }
 

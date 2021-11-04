@@ -113,9 +113,3 @@ async function getData() {
         return fetch('/all-backgrounds/setbackground', options)
     });
 }
-
-
-function setup() {
-
-    
-}

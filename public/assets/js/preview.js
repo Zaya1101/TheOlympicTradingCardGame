@@ -87,32 +87,32 @@ function setup() {
 
     themeButton1.addEventListener('click', async event => {
         themeShape.src = "assets/images/bottomShape.svg"
-        cardBorder.style.cssText = "border-image: linear-gradient(45deg,#0019FF, #3399FF, #0019FF, #3399FF) 1;"
+        cardBorder.style.cssText = "border: 4px solid #3399FF;"
     });
 
     themeButton2.addEventListener('click', async event => {
         themeShape.src = "assets/images/bottomShape_green.svg"
-        cardBorder.style.cssText = "border-image: linear-gradient(45deg,#138200, #30c200, #138200, #30c200) 1;"
+        cardBorder.style.cssText = "border: 4px solid #138200;"
     });
 
     themeButton3.addEventListener('click', async event => {
         themeShape.src = "assets/images/bottomShape_pink.svg"
-        cardBorder.style.cssText = "border-image: linear-gradient(45deg,#AF489B, #9A459A 65%) 1;"
+        cardBorder.style.cssText = "border: 4px solid #AF489B;"
     });
 
     themeButton4.addEventListener('click', async event => {
         themeShape.src = "assets/images/bottomShape_midnight.svg"
-        cardBorder.style.cssText = "border-image: linear-gradient(45deg,#0E163A, #384A99 77%) 1;"
+        cardBorder.style.cssText = "border: 4px solid #0E163A;"
     });
 
     themeButton5.addEventListener('click', async event => {
         themeShape.src = "assets/images/bottomShape_citrus.svg"
-        cardBorder.style.cssText = "border-image: linear-gradient(45deg,#FAE800, #7AFF00 65%) 1;"
+        cardBorder.style.cssText = "border: 4px solid #FAE800;"
     });
 
     themeButton6.addEventListener('click', async event => {
         themeShape.src = "assets/images/bottomShape_red.svg"
-        cardBorder.style.cssText = "border-image: linear-gradient(45deg,#D82924, #981B1D 55%) 1;"
+        cardBorder.style.cssText = "border: 4px solid #D82924;"
     });
 
     //Fix it to one element then fake the rest for design reasons

@@ -4,9 +4,9 @@
 const express = require('express');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
-const cardImage = require('./models/tradingCardImages')
-const rawImage = require('./models/rawImages')
-const backgroundImage = require('./models/backgroundImages')
+const cardImage = require('./models/tradingCardImages');
+const rawImage = require('./models/rawImages');
+const backgroundImage = require('./models/backgroundImages');
 //const Datastore = require('nedb');
 //const multer = require('multer');
 //const upload = multer({ dest: 'uploads/' });
@@ -115,10 +115,22 @@ app.get('/all-backgrounds', (request, response) => {
     });
 });
 
+app.get('/all-poses', (request, response) => {
+    poses.find()
+    .then((result) => {
+        response.send(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    });
+});
+
+
+
 app.patch('/all-backgrounds/setbackground', (request, response) => {
     const data = request.body;
     const backgroundType = request.body.backgroundImage;
-    const id = "61839285c27501d0f2369ba1";
+    const id = "6183ac984b03a190742808f3";
     
     backgroundImage.findOneAndUpdate({_id: id}, {background: backgroundType})
         .then((result) => {
@@ -130,3 +142,47 @@ app.patch('/all-backgrounds/setbackground', (request, response) => {
     response.json(data);
     console.log(id, backgroundType);
 });
+
+app.patch('/all-backgrounds/setpose', (request, response) => {
+    const data = request.body;
+    const poseType = request.body.poseType;
+    const id = "6183ac984b03a190742808f3";
+    
+    backgroundImage.findOneAndUpdate({_id: id}, {pose: poseType})
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });   
+    response.json(data);
+    console.log(id, poseType);
+});
+
+app.patch('/all-backgrounds/clear', (request, response) => {
+    const data = request.body;
+    const backgroundType = request.body.backgroundImage;
+    const poseType = request.body.poseType;
+    const id = "6183ac984b03a190742808f3";
+    
+    backgroundImage.findOneAndUpdate({_id: id}, {background: backgroundType})
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+
+    backgroundImage.findOneAndUpdate({_id: id}, {pose: poseType})
+        .then((result) => {
+            response.send(result)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    
+    response.json(data);
+    console.log(id, poseType);
+});
+
+
