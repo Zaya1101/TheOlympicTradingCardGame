@@ -12,13 +12,12 @@ async function getData() {
 
             const image = document.createElement('img');
 
-            if(item.rarity == "legendary") {
+            if(item.stars < 20 && item.stars > 10) {
 
                 const root = document.querySelector('#legendary');
                 
 
-                root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #FFDB51;';
+                image.style.cssText = 'display: inline-block; width: 155px; box-shadow: 0px 0px 4px 2px #FFDB51;';
     
                 image.src = item.image64;
 
@@ -29,7 +28,7 @@ async function getData() {
                 hideMessage.style.cssText = "display: none;";
             }
 
-            if(item.rarity == "epic") {
+            if(item.stars < 10 && item.stars > 5) {
 
                 const root = document.querySelector('#epic');
                 const link = document.createElement('a');
@@ -37,8 +36,7 @@ async function getData() {
 
                 link.className = 'collectionCardContainer';
 
-                root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #9400D3;';
+                image.style.cssText = 'display: inline-block; width: 155px; box-shadow: 0px 0px 4px 2px #9400D3;';
     
                 image.src = item.image64;
 
@@ -50,12 +48,11 @@ async function getData() {
                 hideMessage.style.cssText = "display: none;";
             } 
 
-            if(item.rarity == "rare") {
+            if(item.stars < 5 && item.stars > 3) {
                 const root = document.querySelector('#rare');
                 
 
-                root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #4195fc;';
+                image.style.cssText = 'display: inline-block; width: 155px; box-shadow: 0px 0px 4px 2px #4195fc;';
     
                 image.src = item.image64;
 
@@ -70,11 +67,10 @@ async function getData() {
 
             } 
 
-            if(item.rarity == "common") { //SORT BY STARS INSTEAD OF RARITY 
+            if(item.stars < 3 ) {  
                 const root = document.querySelector('#common');
 
-                root.style.cssText = 'padding: 10px;';
-                image.style.cssText = 'width: 155px; box-shadow: 0px 0px 4px 2px #808080;';
+                image.style.cssText = 'display: inline-block; width: 155px; box-shadow: 0px 0px 4px 2px #808080;';
 
                 image.src = item.image64;
 

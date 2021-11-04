@@ -28,6 +28,8 @@
     <!--Manifest and Service Workers-->
     <link href="assets/manifest/manifest.json" rel="manifest">
 
+    <script src="/assets/js/favourite.js"></script>
+
     <!--p5.js Library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js" integrity="sha512-P/Je1zlTfRugG4aRZRx9hYRVph2CkbpchkgP6ub1gNF/VNHDUNq0/WOY0CSLMmwEXxrQ7HohFmMenWGpx8ZzvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.js" integrity="sha512-on+Vjx6pkQ27deEPRDWBzaT7qKOG/tjLYq1Zm+1sL9/HL7jkVXOwEbZueZJFpZTQdguMIAp5D8Ewr9DLrvkmww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -48,13 +50,13 @@
 
 <div class="navbar">
     <div class="navbar-centered">
-        <a href="camera.html" class="active"><i class="fas fa-camera fa-2x circle"></i></a>
+        <a href="choosebackground.html" class="active"><i class="fas fa-camera fa-2x circle"></i></a>
     </div>
     <a href="profile.html"><i class="fas fa-user fa-2x"></i></a>
     <a href="collection.html"><i class="fas fa-folder-open fa-2x"></i></a>
     <div class="navbar-right">
         <a href="trading.html"><i class="fas fa-arrows-alt-h fa-2x"></i></a>
-        <a href="voting.html"><i class="fas fa-vote-yea fa-2x"></i></a>
+        <a href="voting.html"><i class="fas fa-users fa-2x"></i></a>
     </div>
 </div>
     
@@ -65,21 +67,59 @@
     <main class="main">
 
         
+
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="assets/images/slideshow/Slideshow Image 2.png" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="assets/images/slideshow/Slideshow Image 1.png" style="width:100%">
+            </div>
+            
+            <div class="mySlides fade">
+              <img src="assets/images/slideshow/Slideshow Image 3.png"style= "width:100%">
+            </div>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+            </div>
+            <script>var slideIndex = 0;
+                showSlides();
+                
+                function showSlides() {
+                  var i;
+                  var slides = document.getElementsByClassName("mySlides");
+                  var dots = document.getElementsByClassName("dot");
+                  for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                  }
+                  slideIndex++;
+                  if (slideIndex > slides.length) {slideIndex = 1}    
+                  for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" circle_active", "");
+                  }
+                  slides[slideIndex-1].style.display = "block";  
+                  dots[slideIndex-1].className += " circle_active";
+                  setTimeout(showSlides, 10000);
+                }</script>
+
         <div class="welcomeback">
-            <h2></i>Welcome back, Prototype!</h2>
+            <h2 style="font-weight: 900;">Welcome back, Prototype!</h2>
         </div>
-        
-        <div class="favourite_cards">
-        <h2>Favourite Cards:</h2>
-        <div class="placeholderCard"></div>
-        <div class="placeholderCard"></div>
+        <div id="favourite_cards">
+        <h2>Your Favourite Cards</h2>
+        <p id="noFavouriteCards">No favourite cards<i class="far fa-sad-tear" style="padding-left: 5px;"></i></p>
+        <!--<div class="placeholderCard"></div><div class="placeholderCard"></div>-->
         </div>
 
-        <div class="favourite_cards">
-            <h2>New Community Cards:</h2>
-            <div class="placeholderCard"></div>
-            <div class="placeholderCard"></div>
-        </div>
+
         
     </main><!-- End #main -->
 
