@@ -65,7 +65,7 @@ function setup() {
         return fetch('/api', options)
       }); 
       
-    setTimeout( function() { window.location.href = "picturesuccess.html" }, 10000 );
+    setTimeout( function() { window.location.href = "picturesuccess.html" }, 2000 );
     });
 
     //Draggable objects
