@@ -1,3 +1,5 @@
+/*Full Trading Card */
+
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 

@@ -1,3 +1,5 @@
+/*Image user take a picture of for the trading card */
+
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
